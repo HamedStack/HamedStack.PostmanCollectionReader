@@ -2038,4 +2038,4 @@ namespace PostmanCollectionV2_0_0
 #pragma warning restore CS8618
 #pragma warning restore CS8601
 #pragma warning restore CS8603
-#pragma warning disable CS1591
+#pragma warning restore CS1591

@@ -18,14 +18,14 @@ namespace HamedStack.PostmanCollectionV2_0_0
     public partial class PostmanCollection2_0_0
     {
         [JsonPropertyName("auth")]
-        public Auth Auth { get; set; }
+        public PostmanAuth Auth { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("event")]
-        public Event[] Event { get; set; }
+        public PostmanEvent[] Event { get; set; }
 
         [JsonPropertyName("info")]
-        public Information Info { get; set; }
+        public PostmanInformation Info { get; set; }
 
         /// <summary>
         /// Items are the basic unit for a Postman collection. You can think of them as corresponding
@@ -33,7 +33,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         /// associated with it.
         /// </summary>
         [JsonPropertyName("item")]
-        public Items[] Item { get; set; }
+        public PostmanItems[] Item { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("protocolProfileBehavior")]
@@ -41,13 +41,13 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("variable")]
-        public Variable[] Variable { get; set; }
+        public PostmanVariable[] Variable { get; set; }
     }
 
     /// <summary>
     /// Represents authentication helpers provided by Postman
     /// </summary>
-    public partial class Auth
+    public partial class PostmanAuth
     {
         /// <summary>
         /// The attributes for API Key Authentication. e.g. key, value, in.
@@ -136,7 +136,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         public Dictionary<string, object> Oauth2 { get; set; }
 
         [JsonPropertyName("type")]
-        public AuthType Type { get; set; }
+        public PostmanAuthType Type { get; set; }
     }
 
     /// <summary>
@@ -145,7 +145,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
     ///
     /// Defines a script associated with an associated event name
     /// </summary>
-    public partial class Event
+    public partial class PostmanEvent
     {
         /// <summary>
         /// Indicates whether the event is disabled. If absent, the event is assumed to be enabled.
@@ -169,18 +169,18 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("script")]
-        public Script Script { get; set; }
+        public PostmanScript Script { get; set; }
     }
 
     /// <summary>
     /// A script is a snippet of Javascript code that can be used to to perform setup or teardown
     /// operations on a particular response.
     /// </summary>
-    public partial class Script
+    public partial class PostmanScript
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("exec")]
-        public Host? Exec { get; set; }
+        public PostmanHost? Exec { get; set; }
 
         /// <summary>
         /// A unique, user defined identifier that can  be used to refer to this script from requests.
@@ -198,7 +198,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("src")]
-        public Url? Src { get; set; }
+        public PostmanUrl? Src { get; set; }
 
         /// <summary>
         /// Type of the script. E.g: 'text/javascript'
@@ -208,7 +208,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         public string Type { get; set; }
     }
 
-    public partial class UrlClass
+    public partial class PostmanUrlClass
     {
         /// <summary>
         /// Contains the URL fragment (if any). Usually this is not transmitted over the network, but
@@ -224,11 +224,11 @@ namespace HamedStack.PostmanCollectionV2_0_0
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("host")]
-        public Host? Host { get; set; }
+        public PostmanHost? Host { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("path")]
-        public UrlPath? Path { get; set; }
+        public PostmanUrlPath? Path { get; set; }
 
         /// <summary>
         /// The port number present in this URL. An empty value implies 80/443 depending on whether
@@ -251,7 +251,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("query")]
-        public QueryParam[] Query { get; set; }
+        public PostmanQueryParam[] Query { get; set; }
 
         /// <summary>
         /// The string representation of the request URL, including the protocol, host, path, hash,
@@ -267,10 +267,10 @@ namespace HamedStack.PostmanCollectionV2_0_0
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("variable")]
-        public Variable[] Variable { get; set; }
+        public PostmanVariable[] Variable { get; set; }
     }
 
-    public partial class PathClass
+    public partial class PostmanPathClass
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("type")]
@@ -281,10 +281,10 @@ namespace HamedStack.PostmanCollectionV2_0_0
         public string Value { get; set; }
     }
 
-    public partial class QueryParam
+    public partial class PostmanQueryParam
     {
         [JsonPropertyName("description")]
-        public DescriptionUnion? Description { get; set; }
+        public PostmanDescriptionUnion? Description { get; set; }
 
         /// <summary>
         /// If set to true, the current query parameter will not be sent with the request.
@@ -300,7 +300,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         public string Value { get; set; }
     }
 
-    public partial class Description
+    public partial class PostmanDescription
     {
         /// <summary>
         /// The content of the description goes here, as a raw string.
@@ -334,10 +334,10 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// can save a lot of time. Variables can be defined, and referenced to from any part of a
     /// request.
     /// </summary>
-    public partial class Variable
+    public partial class PostmanVariable
     {
         [JsonPropertyName("description")]
-        public DescriptionUnion? Description { get; set; }
+        public PostmanDescriptionUnion? Description { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("disabled")]
@@ -378,7 +378,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("type")]
-        public VariableType? Type { get; set; }
+        public PostmanVariableType? Type { get; set; }
 
         /// <summary>
         /// The value that a variable holds in this collection. Ultimately, the variables will be
@@ -391,7 +391,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// <summary>
     /// Detailed description of the info block
     /// </summary>
-    public partial class Information
+    public partial class PostmanInformation
     {
         /// <summary>
         /// Every collection is identified by the unique value of this field. The value of this field
@@ -405,7 +405,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         public string PostmanId { get; set; }
 
         [JsonPropertyName("description")]
-        public DescriptionUnion? Description { get; set; }
+        public PostmanDescriptionUnion? Description { get; set; }
 
         /// <summary>
         /// A collection's friendly name is defined by this field. You would want to set this field
@@ -424,17 +424,17 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("version")]
-        public CollectionVersion? Version { get; set; }
+        public PostmanCollectionVersion? Version { get; set; }
     }
 
-    public partial class CollectionVersionClass
+    public partial class PostmanCollectionVersionClass
     {
         /// <summary>
         /// A human friendly identifier to make sense of the version numbers. E.g: 'beta-3'
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("identifier")]
-        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
+        [JsonConverter(typeof(PostmanMinMaxLengthCheckConverter))]
         public string Identifier { get; set; }
 
         /// <summary>
@@ -469,14 +469,14 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// it is necessary to be able to group requests together. This can be achived using
     /// 'Folders'. A folder just is an ordered set of requests.
     /// </summary>
-    public partial class Items
+    public partial class PostmanItems
     {
         [JsonPropertyName("description")]
-        public DescriptionUnion? Description { get; set; }
+        public PostmanDescriptionUnion? Description { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("event")]
-        public Event[] Event { get; set; }
+        public PostmanEvent[] Event { get; set; }
 
         /// <summary>
         /// A unique ID that is used to identify collections internally
@@ -501,18 +501,18 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("request")]
-        public RequestUnion? Request { get; set; }
+        public PostmanRequestUnion? Request { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("response")]
-        public Response[] Response { get; set; }
+        public PostmanResponse[] Response { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("variable")]
-        public Variable[] Variable { get; set; }
+        public PostmanVariable[] Variable { get; set; }
 
         [JsonPropertyName("auth")]
-        public Auth Auth { get; set; }
+        public PostmanAuth Auth { get; set; }
 
         /// <summary>
         /// Items are entities which contain an actual HTTP request, and sample responses attached to
@@ -520,27 +520,27 @@ namespace HamedStack.PostmanCollectionV2_0_0
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("item")]
-        public Items[] Item { get; set; }
+        public PostmanItems[] Item { get; set; }
     }
 
-    public partial class RequestClass
+    public partial class PostmanRequestClass
     {
         [JsonPropertyName("auth")]
-        public Auth Auth { get; set; }
+        public PostmanAuth Auth { get; set; }
 
         [JsonPropertyName("body")]
-        public Body Body { get; set; }
+        public PostmanBody Body { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("certificate")]
-        public Certificate Certificate { get; set; }
+        public PostmanCertificate Certificate { get; set; }
 
         [JsonPropertyName("description")]
-        public DescriptionUnion? Description { get; set; }
+        public PostmanDescriptionUnion? Description { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("header")]
-        public HeaderUnion? Header { get; set; }
+        public PostmanHeaderUnion? Header { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("method")]
@@ -548,17 +548,17 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("proxy")]
-        public ProxyConfig Proxy { get; set; }
+        public PostmanProxyConfig Proxy { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("url")]
-        public Url? Url { get; set; }
+        public PostmanUrl? Url { get; set; }
     }
 
     /// <summary>
     /// This field contains the data usually contained in the request body.
     /// </summary>
-    public partial class Body
+    public partial class PostmanBody
     {
         /// <summary>
         /// When set to true, prevents request body from being sent.
@@ -569,11 +569,11 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("file")]
-        public File File { get; set; }
+        public PostmanFile File { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("formdata")]
-        public FormParameter[] Formdata { get; set; }
+        public PostmanFormParameter[] Formdata { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("graphql")]
@@ -584,7 +584,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("mode")]
-        public Mode? Mode { get; set; }
+        public PostmanMode? Mode { get; set; }
 
         /// <summary>
         /// Additional configurations and options set for various body modes.
@@ -599,10 +599,10 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("urlencoded")]
-        public UrlEncodedParameter[] Urlencoded { get; set; }
+        public PostmanUrlEncodedParameter[] Urlencoded { get; set; }
     }
 
-    public partial class File
+    public partial class PostmanFile
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("content")]
@@ -612,7 +612,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         public string Src { get; set; }
     }
 
-    public partial class FormParameter
+    public partial class PostmanFormParameter
     {
         /// <summary>
         /// Override Content-Type header of this form data entity.
@@ -622,7 +622,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         public string ContentType { get; set; }
 
         [JsonPropertyName("description")]
-        public DescriptionUnion? Description { get; set; }
+        public PostmanDescriptionUnion? Description { get; set; }
 
         /// <summary>
         /// When set to true, prevents this form data entity from being sent.
@@ -636,20 +636,20 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("type")]
-        public FormParameterType? Type { get; set; }
+        public PostmanFormParameterType? Type { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("value")]
         public string Value { get; set; }
 
         [JsonPropertyName("src")]
-        public Src? Src { get; set; }
+        public PostmanSrc? Src { get; set; }
     }
 
-    public partial class UrlEncodedParameter
+    public partial class PostmanUrlEncodedParameter
     {
         [JsonPropertyName("description")]
-        public DescriptionUnion? Description { get; set; }
+        public PostmanDescriptionUnion? Description { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("disabled")]
@@ -666,21 +666,21 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// <summary>
     /// A representation of an ssl certificate
     /// </summary>
-    public partial class Certificate
+    public partial class PostmanCertificate
     {
         /// <summary>
         /// An object containing path to file certificate, on the file system
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("cert")]
-        public Cert Cert { get; set; }
+        public PostmanCert Cert { get; set; }
 
         /// <summary>
         /// An object containing path to file containing private key, on the file system
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("key")]
-        public Key Key { get; set; }
+        public PostmanKey Key { get; set; }
 
         /// <summary>
         /// A list of Url match pattern strings, to identify Urls this certificate can be used for.
@@ -707,7 +707,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// <summary>
     /// An object containing path to file certificate, on the file system
     /// </summary>
-    public partial class Cert
+    public partial class PostmanCert
     {
         /// <summary>
         /// The path to file containing key for certificate, on the file system
@@ -719,7 +719,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// <summary>
     /// An object containing path to file containing private key, on the file system
     /// </summary>
-    public partial class Key
+    public partial class PostmanKey
     {
         /// <summary>
         /// The path to file containing key for certificate, on the file system
@@ -733,10 +733,10 @@ namespace HamedStack.PostmanCollectionV2_0_0
     ///
     /// Represents a single HTTP Header
     /// </summary>
-    public partial class Header
+    public partial class PostmanHeader
     {
         [JsonPropertyName("description")]
-        public DescriptionUnion? Description { get; set; }
+        public PostmanDescriptionUnion? Description { get; set; }
 
         /// <summary>
         /// If set to true, the current header will not be sent with requests.
@@ -762,7 +762,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// Using the Proxy, you can configure your custom proxy into the postman for particular url
     /// match
     /// </summary>
-    public partial class ProxyConfig
+    public partial class PostmanProxyConfig
     {
         /// <summary>
         /// When set to true, ignores this proxy configuration entity
@@ -800,7 +800,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
         public bool? Tunnel { get; set; }
     }
 
-    public partial class ResponseClass
+    public partial class PostmanResponseClass
     {
         /// <summary>
         /// The raw text of the response.
@@ -817,10 +817,10 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("cookie")]
-        public Cookie[] Cookie { get; set; }
+        public PostmanCookie[] Cookie { get; set; }
 
         [JsonPropertyName("header")]
-        public Headers? Header { get; set; }
+        public PostmanHeaders? Header { get; set; }
 
         /// <summary>
         /// A unique, user defined identifier that can  be used to refer to this response from
@@ -832,14 +832,14 @@ namespace HamedStack.PostmanCollectionV2_0_0
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("originalRequest")]
-        public RequestUnion? OriginalRequest { get; set; }
+        public PostmanRequestUnion? OriginalRequest { get; set; }
 
         /// <summary>
         /// The time taken by the request to complete. If a number, the unit is milliseconds. If the
         /// response is manually created, this can be set to `null`.
         /// </summary>
         [JsonPropertyName("responseTime")]
-        public ResponseTime? ResponseTime { get; set; }
+        public PostmanResponseTime? ResponseTime { get; set; }
 
         /// <summary>
         /// The response status, e.g: '200 OK'
@@ -859,7 +859,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// A Cookie, that follows the [Google Chrome
     /// format](https://developer.chrome.com/extensions/cookies)
     /// </summary>
-    public partial class Cookie
+    public partial class PostmanCookie
     {
         /// <summary>
         /// The domain for which this cookie is valid.
@@ -937,66 +937,66 @@ namespace HamedStack.PostmanCollectionV2_0_0
         public string Value { get; set; }
     }
 
-    public enum AuthType { Apikey, Awsv4, Basic, Bearer, Digest, Edgegrid, Hawk, Noauth, Ntlm, Oauth1, Oauth2 };
+    public enum PostmanAuthType { Apikey, Awsv4, Basic, Bearer, Digest, Edgegrid, Hawk, Noauth, Ntlm, Oauth1, Oauth2 };
 
     /// <summary>
     /// A variable may have multiple types. This field specifies the type of the variable.
     /// </summary>
-    public enum VariableType { Any, Boolean, Number, String };
+    public enum PostmanVariableType { Any, Boolean, Number, String };
 
-    public enum FormParameterType { File, Text };
+    public enum PostmanFormParameterType { File, Text };
 
     /// <summary>
     /// Postman stores the type of data associated with this request in this field.
     /// </summary>
-    public enum Mode { File, Formdata, Graphql, Raw, Urlencoded };
+    public enum PostmanMode { File, Formdata, Graphql, Raw, Urlencoded };
 
     /// <summary>
     /// The host for the URL, E.g: api.yourdomain.com. Can be stored as a string or as an array
     /// of strings.
     /// </summary>
-    public partial struct Host
+    public partial struct PostmanHost
     {
         public string String;
         public string[] StringArray;
 
-        public static implicit operator Host(string String) => new Host { String = String };
-        public static implicit operator Host(string[] StringArray) => new Host { StringArray = StringArray };
+        public static implicit operator PostmanHost(string String) => new PostmanHost { String = String };
+        public static implicit operator PostmanHost(string[] StringArray) => new PostmanHost { StringArray = StringArray };
     }
 
     /// <summary>
     /// The complete path of the current url, broken down into segments. A segment could be a
     /// string, or a path variable.
     /// </summary>
-    public partial struct PathElement
+    public partial struct PostmanPathElement
     {
-        public PathClass PathClass;
+        public PostmanPathClass PathClass;
         public string String;
 
-        public static implicit operator PathElement(PathClass PathClass) => new PathElement { PathClass = PathClass };
-        public static implicit operator PathElement(string String) => new PathElement { String = String };
+        public static implicit operator PostmanPathElement(PostmanPathClass PathClass) => new PostmanPathElement { PathClass = PathClass };
+        public static implicit operator PostmanPathElement(string String) => new PostmanPathElement { String = String };
     }
 
-    public partial struct UrlPath
+    public partial struct PostmanUrlPath
     {
-        public PathElement[] AnythingArray;
+        public PostmanPathElement[] AnythingArray;
         public string String;
 
-        public static implicit operator UrlPath(PathElement[] AnythingArray) => new UrlPath { AnythingArray = AnythingArray };
-        public static implicit operator UrlPath(string String) => new UrlPath { String = String };
+        public static implicit operator PostmanUrlPath(PostmanPathElement[] AnythingArray) => new PostmanUrlPath { AnythingArray = AnythingArray };
+        public static implicit operator PostmanUrlPath(string String) => new PostmanUrlPath { String = String };
     }
 
     /// <summary>
     /// A Description can be a raw text, or be an object, which holds the description along with
     /// its format.
     /// </summary>
-    public partial struct DescriptionUnion
+    public partial struct PostmanDescriptionUnion
     {
-        public Description Description;
+        public PostmanDescription Description;
         public string String;
 
-        public static implicit operator DescriptionUnion(Description Description) => new DescriptionUnion { Description = Description };
-        public static implicit operator DescriptionUnion(string String) => new DescriptionUnion { String = String };
+        public static implicit operator PostmanDescriptionUnion(PostmanDescription Description) => new PostmanDescriptionUnion { Description = Description };
+        public static implicit operator PostmanDescriptionUnion(string String) => new PostmanDescriptionUnion { String = String };
         public bool IsNull => Description == null && String == null;
     }
 
@@ -1004,13 +1004,13 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// If object, contains the complete broken-down URL for this request. If string, contains
     /// the literal request URL.
     /// </summary>
-    public partial struct Url
+    public partial struct PostmanUrl
     {
         public string String;
-        public UrlClass UrlClass;
+        public PostmanUrlClass UrlClass;
 
-        public static implicit operator Url(string String) => new Url { String = String };
-        public static implicit operator Url(UrlClass UrlClass) => new Url { UrlClass = UrlClass };
+        public static implicit operator PostmanUrl(string String) => new PostmanUrl { String = String };
+        public static implicit operator PostmanUrl(PostmanUrlClass UrlClass) => new PostmanUrl { UrlClass = UrlClass };
     }
 
     /// <summary>
@@ -1018,67 +1018,67 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// version number. While optional, it is recommended that you use this field to its fullest
     /// extent!
     /// </summary>
-    public partial struct CollectionVersion
+    public partial struct PostmanCollectionVersion
     {
-        public CollectionVersionClass CollectionVersionClass;
+        public PostmanCollectionVersionClass CollectionVersionClass;
         public string String;
 
-        public static implicit operator CollectionVersion(CollectionVersionClass CollectionVersionClass) => new CollectionVersion { CollectionVersionClass = CollectionVersionClass };
-        public static implicit operator CollectionVersion(string String) => new CollectionVersion { String = String };
+        public static implicit operator PostmanCollectionVersion(PostmanCollectionVersionClass CollectionVersionClass) => new PostmanCollectionVersion { CollectionVersionClass = CollectionVersionClass };
+        public static implicit operator PostmanCollectionVersion(string String) => new PostmanCollectionVersion { String = String };
     }
 
-    public partial struct Src
+    public partial struct PostmanSrc
     {
         public object[] AnythingArray;
         public string String;
 
-        public static implicit operator Src(object[] AnythingArray) => new Src { AnythingArray = AnythingArray };
-        public static implicit operator Src(string String) => new Src { String = String };
+        public static implicit operator PostmanSrc(object[] AnythingArray) => new PostmanSrc { AnythingArray = AnythingArray };
+        public static implicit operator PostmanSrc(string String) => new PostmanSrc { String = String };
         public bool IsNull => AnythingArray == null && String == null;
     }
 
-    public partial struct HeaderUnion
+    public partial struct PostmanHeaderUnion
     {
-        public Header[] HeaderArray;
+        public PostmanHeader[] HeaderArray;
         public string String;
 
-        public static implicit operator HeaderUnion(Header[] HeaderArray) => new HeaderUnion { HeaderArray = HeaderArray };
-        public static implicit operator HeaderUnion(string String) => new HeaderUnion { String = String };
+        public static implicit operator PostmanHeaderUnion(PostmanHeader[] HeaderArray) => new PostmanHeaderUnion { HeaderArray = HeaderArray };
+        public static implicit operator PostmanHeaderUnion(string String) => new PostmanHeaderUnion { String = String };
     }
 
     /// <summary>
     /// A request represents an HTTP request. If a string, the string is assumed to be the
     /// request URL and the method is assumed to be 'GET'.
     /// </summary>
-    public partial struct RequestUnion
+    public partial struct PostmanRequestUnion
     {
-        public RequestClass RequestClass;
+        public PostmanRequestClass RequestClass;
         public string String;
 
-        public static implicit operator RequestUnion(RequestClass RequestClass) => new RequestUnion { RequestClass = RequestClass };
-        public static implicit operator RequestUnion(string String) => new RequestUnion { String = String };
+        public static implicit operator PostmanRequestUnion(PostmanRequestClass RequestClass) => new PostmanRequestUnion { RequestClass = RequestClass };
+        public static implicit operator PostmanRequestUnion(string String) => new PostmanRequestUnion { String = String };
     }
 
     /// <summary>
     /// No HTTP request is complete without its headers, and the same is true for a Postman
     /// request. This field is an array containing all the headers.
     /// </summary>
-    public partial struct HeaderElement
+    public partial struct PostmanHeaderElement
     {
-        public Header Header;
+        public PostmanHeader Header;
         public string String;
 
-        public static implicit operator HeaderElement(Header Header) => new HeaderElement { Header = Header };
-        public static implicit operator HeaderElement(string String) => new HeaderElement { String = String };
+        public static implicit operator PostmanHeaderElement(PostmanHeader Header) => new PostmanHeaderElement { Header = Header };
+        public static implicit operator PostmanHeaderElement(string String) => new PostmanHeaderElement { String = String };
     }
 
-    public partial struct Headers
+    public partial struct PostmanHeaders
     {
-        public HeaderElement[] AnythingArray;
+        public PostmanHeaderElement[] AnythingArray;
         public string String;
 
-        public static implicit operator Headers(HeaderElement[] AnythingArray) => new Headers { AnythingArray = AnythingArray };
-        public static implicit operator Headers(string String) => new Headers { String = String };
+        public static implicit operator PostmanHeaders(PostmanHeaderElement[] AnythingArray) => new PostmanHeaders { AnythingArray = AnythingArray };
+        public static implicit operator PostmanHeaders(string String) => new PostmanHeaders { String = String };
         public bool IsNull => AnythingArray == null && String == null;
     }
 
@@ -1086,175 +1086,175 @@ namespace HamedStack.PostmanCollectionV2_0_0
     /// The time taken by the request to complete. If a number, the unit is milliseconds. If the
     /// response is manually created, this can be set to `null`.
     /// </summary>
-    public partial struct ResponseTime
+    public partial struct PostmanResponseTime
     {
         public double? Double;
         public string String;
 
-        public static implicit operator ResponseTime(double Double) => new ResponseTime { Double = Double };
-        public static implicit operator ResponseTime(string String) => new ResponseTime { String = String };
+        public static implicit operator PostmanResponseTime(double Double) => new PostmanResponseTime { Double = Double };
+        public static implicit operator PostmanResponseTime(string String) => new PostmanResponseTime { String = String };
         public bool IsNull => Double == null && String == null;
     }
 
     /// <summary>
     /// A response represents an HTTP response.
     /// </summary>
-    public partial struct Response
+    public partial struct PostmanResponse
     {
         public object[] AnythingArray;
         public bool? Bool;
         public double? Double;
         public long? Integer;
-        public ResponseClass ResponseClass;
+        public PostmanResponseClass ResponseClass;
         public string String;
 
-        public static implicit operator Response(object[] AnythingArray) => new Response { AnythingArray = AnythingArray };
-        public static implicit operator Response(bool Bool) => new Response { Bool = Bool };
-        public static implicit operator Response(double Double) => new Response { Double = Double };
-        public static implicit operator Response(long Integer) => new Response { Integer = Integer };
-        public static implicit operator Response(ResponseClass ResponseClass) => new Response { ResponseClass = ResponseClass };
-        public static implicit operator Response(string String) => new Response { String = String };
+        public static implicit operator PostmanResponse(object[] AnythingArray) => new PostmanResponse { AnythingArray = AnythingArray };
+        public static implicit operator PostmanResponse(bool Bool) => new PostmanResponse { Bool = Bool };
+        public static implicit operator PostmanResponse(double Double) => new PostmanResponse { Double = Double };
+        public static implicit operator PostmanResponse(long Integer) => new PostmanResponse { Integer = Integer };
+        public static implicit operator PostmanResponse(PostmanResponseClass ResponseClass) => new PostmanResponse { ResponseClass = ResponseClass };
+        public static implicit operator PostmanResponse(string String) => new PostmanResponse { String = String };
         public bool IsNull => AnythingArray == null && Bool == null && ResponseClass == null && Double == null && Integer == null && String == null;
     }
 
     public partial class PostmanCollection2_0_0
     {
-        public static PostmanCollection2_0_0 FromJson(string json) => JsonSerializer.Deserialize<PostmanCollection2_0_0>(json, PostmanCollectionV2_0_0.Converter.Settings);
+        public static PostmanCollection2_0_0 FromJson(string json) => JsonSerializer.Deserialize<PostmanCollection2_0_0>(json, PostmanCollectionV2_0_0.PostmanConverter.Settings);
     }
 
-    public static class Serialize
+    public static class PostmanSerialize
     {
-        public static string ToJson(this PostmanCollection2_0_0 self) => JsonSerializer.Serialize(self, PostmanCollectionV2_0_0.Converter.Settings);
+        public static string ToJson(this PostmanCollection2_0_0 self) => JsonSerializer.Serialize(self, PostmanCollectionV2_0_0.PostmanConverter.Settings);
     }
 
-    internal static class Converter
+    internal static class PostmanConverter
     {
         public static readonly JsonSerializerOptions Settings = new(JsonSerializerDefaults.General)
         {
             Converters =
             {
-                AuthTypeConverter.Singleton,
-                HostConverter.Singleton,
-                UrlConverter.Singleton,
-                UrlPathConverter.Singleton,
-                PathElementConverter.Singleton,
-                DescriptionUnionConverter.Singleton,
-                VariableTypeConverter.Singleton,
-                CollectionVersionConverter.Singleton,
-                RequestUnionConverter.Singleton,
-                SrcConverter.Singleton,
-                FormParameterTypeConverter.Singleton,
-                ModeConverter.Singleton,
-                HeaderUnionConverter.Singleton,
-                ResponseConverter.Singleton,
-                HeadersConverter.Singleton,
-                HeaderElementConverter.Singleton,
-                ResponseTimeConverter.Singleton,
-                new DateOnlyConverter(),
-                new TimeOnlyConverter(),
-                IsoDateTimeOffsetConverter.Singleton
+                PostmanAuthTypeConverter.Singleton,
+                PostmanHostConverter.Singleton,
+                PostmanUrlConverter.Singleton,
+                PostmanUrlPathConverter.Singleton,
+                PostmanPathElementConverter.Singleton,
+                PostmanDescriptionUnionConverter.Singleton,
+                PostmanVariableTypeConverter.Singleton,
+                PostmanCollectionVersionConverter.Singleton,
+                PostmanRequestUnionConverter.Singleton,
+                PostmanSrcConverter.Singleton,
+                PostmanFormParameterTypeConverter.Singleton,
+                PostmanModeConverter.Singleton,
+                PostmanHeaderUnionConverter.Singleton,
+                PostmanResponseConverter.Singleton,
+                PostmanHeadersConverter.Singleton,
+                PostmanHeaderElementConverter.Singleton,
+                PostmanResponseTimeConverter.Singleton,
+                new PostmanDateOnlyConverter(),
+                new PostmanTimeOnlyConverter(),
+                PostmanIsoDateTimeOffsetConverter.Singleton
             },
         };
     }
 
-    internal class AuthTypeConverter : JsonConverter<AuthType>
+    internal class PostmanAuthTypeConverter : JsonConverter<PostmanAuthType>
     {
-        public override bool CanConvert(Type t) => t == typeof(AuthType);
+        public override bool CanConvert(Type t) => t == typeof(PostmanAuthType);
 
-        public override AuthType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanAuthType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             var value = reader.GetString();
             switch (value)
             {
                 case "apikey":
-                    return AuthType.Apikey;
+                    return PostmanAuthType.Apikey;
                 case "awsv4":
-                    return AuthType.Awsv4;
+                    return PostmanAuthType.Awsv4;
                 case "basic":
-                    return AuthType.Basic;
+                    return PostmanAuthType.Basic;
                 case "bearer":
-                    return AuthType.Bearer;
+                    return PostmanAuthType.Bearer;
                 case "digest":
-                    return AuthType.Digest;
+                    return PostmanAuthType.Digest;
                 case "edgegrid":
-                    return AuthType.Edgegrid;
+                    return PostmanAuthType.Edgegrid;
                 case "hawk":
-                    return AuthType.Hawk;
+                    return PostmanAuthType.Hawk;
                 case "noauth":
-                    return AuthType.Noauth;
+                    return PostmanAuthType.Noauth;
                 case "ntlm":
-                    return AuthType.Ntlm;
+                    return PostmanAuthType.Ntlm;
                 case "oauth1":
-                    return AuthType.Oauth1;
+                    return PostmanAuthType.Oauth1;
                 case "oauth2":
-                    return AuthType.Oauth2;
+                    return PostmanAuthType.Oauth2;
             }
             throw new Exception("Cannot unmarshal type AuthType");
         }
 
-        public override void Write(Utf8JsonWriter writer, AuthType value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanAuthType value, JsonSerializerOptions options)
         {
             switch (value)
             {
-                case AuthType.Apikey:
+                case PostmanAuthType.Apikey:
                     JsonSerializer.Serialize(writer, "apikey", options);
                     return;
-                case AuthType.Awsv4:
+                case PostmanAuthType.Awsv4:
                     JsonSerializer.Serialize(writer, "awsv4", options);
                     return;
-                case AuthType.Basic:
+                case PostmanAuthType.Basic:
                     JsonSerializer.Serialize(writer, "basic", options);
                     return;
-                case AuthType.Bearer:
+                case PostmanAuthType.Bearer:
                     JsonSerializer.Serialize(writer, "bearer", options);
                     return;
-                case AuthType.Digest:
+                case PostmanAuthType.Digest:
                     JsonSerializer.Serialize(writer, "digest", options);
                     return;
-                case AuthType.Edgegrid:
+                case PostmanAuthType.Edgegrid:
                     JsonSerializer.Serialize(writer, "edgegrid", options);
                     return;
-                case AuthType.Hawk:
+                case PostmanAuthType.Hawk:
                     JsonSerializer.Serialize(writer, "hawk", options);
                     return;
-                case AuthType.Noauth:
+                case PostmanAuthType.Noauth:
                     JsonSerializer.Serialize(writer, "noauth", options);
                     return;
-                case AuthType.Ntlm:
+                case PostmanAuthType.Ntlm:
                     JsonSerializer.Serialize(writer, "ntlm", options);
                     return;
-                case AuthType.Oauth1:
+                case PostmanAuthType.Oauth1:
                     JsonSerializer.Serialize(writer, "oauth1", options);
                     return;
-                case AuthType.Oauth2:
+                case PostmanAuthType.Oauth2:
                     JsonSerializer.Serialize(writer, "oauth2", options);
                     return;
             }
             throw new Exception("Cannot marshal type AuthType");
         }
 
-        public static readonly AuthTypeConverter Singleton = new AuthTypeConverter();
+        public static readonly PostmanAuthTypeConverter Singleton = new PostmanAuthTypeConverter();
     }
 
-    internal class HostConverter : JsonConverter<Host>
+    internal class PostmanHostConverter : JsonConverter<PostmanHost>
     {
-        public override bool CanConvert(Type t) => t == typeof(Host);
+        public override bool CanConvert(Type t) => t == typeof(PostmanHost);
 
-        public override Host Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanHost Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new Host { String = stringValue };
+                    return new PostmanHost { String = stringValue };
                 case JsonTokenType.StartArray:
                     var arrayValue = JsonSerializer.Deserialize<string[]>(ref reader, options);
-                    return new Host { StringArray = arrayValue };
+                    return new PostmanHost { StringArray = arrayValue };
             }
             throw new Exception("Cannot unmarshal type Host");
         }
 
-        public override void Write(Utf8JsonWriter writer, Host value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanHost value, JsonSerializerOptions options)
         {
             if (value.String != null)
             {
@@ -1269,28 +1269,28 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type Host");
         }
 
-        public static readonly HostConverter Singleton = new HostConverter();
+        public static readonly PostmanHostConverter Singleton = new PostmanHostConverter();
     }
 
-    internal class UrlConverter : JsonConverter<Url>
+    internal class PostmanUrlConverter : JsonConverter<PostmanUrl>
     {
-        public override bool CanConvert(Type t) => t == typeof(Url);
+        public override bool CanConvert(Type t) => t == typeof(PostmanUrl);
 
-        public override Url Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanUrl Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new Url { String = stringValue };
+                    return new PostmanUrl { String = stringValue };
                 case JsonTokenType.StartObject:
-                    var objectValue = JsonSerializer.Deserialize<UrlClass>(ref reader, options);
-                    return new Url { UrlClass = objectValue };
+                    var objectValue = JsonSerializer.Deserialize<PostmanUrlClass>(ref reader, options);
+                    return new PostmanUrl { UrlClass = objectValue };
             }
             throw new Exception("Cannot unmarshal type Url");
         }
 
-        public override void Write(Utf8JsonWriter writer, Url value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanUrl value, JsonSerializerOptions options)
         {
             if (value.String != null)
             {
@@ -1305,28 +1305,28 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type Url");
         }
 
-        public static readonly UrlConverter Singleton = new UrlConverter();
+        public static readonly PostmanUrlConverter Singleton = new PostmanUrlConverter();
     }
 
-    internal class UrlPathConverter : JsonConverter<UrlPath>
+    internal class PostmanUrlPathConverter : JsonConverter<PostmanUrlPath>
     {
-        public override bool CanConvert(Type t) => t == typeof(UrlPath);
+        public override bool CanConvert(Type t) => t == typeof(PostmanUrlPath);
 
-        public override UrlPath Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanUrlPath Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new UrlPath { String = stringValue };
+                    return new PostmanUrlPath { String = stringValue };
                 case JsonTokenType.StartArray:
-                    var arrayValue = JsonSerializer.Deserialize<PathElement[]>(ref reader, options);
-                    return new UrlPath { AnythingArray = arrayValue };
+                    var arrayValue = JsonSerializer.Deserialize<PostmanPathElement[]>(ref reader, options);
+                    return new PostmanUrlPath { AnythingArray = arrayValue };
             }
             throw new Exception("Cannot unmarshal type UrlPath");
         }
 
-        public override void Write(Utf8JsonWriter writer, UrlPath value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanUrlPath value, JsonSerializerOptions options)
         {
             if (value.String != null)
             {
@@ -1341,28 +1341,28 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type UrlPath");
         }
 
-        public static readonly UrlPathConverter Singleton = new UrlPathConverter();
+        public static readonly PostmanUrlPathConverter Singleton = new PostmanUrlPathConverter();
     }
 
-    internal class PathElementConverter : JsonConverter<PathElement>
+    internal class PostmanPathElementConverter : JsonConverter<PostmanPathElement>
     {
-        public override bool CanConvert(Type t) => t == typeof(PathElement);
+        public override bool CanConvert(Type t) => t == typeof(PostmanPathElement);
 
-        public override PathElement Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanPathElement Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new PathElement { String = stringValue };
+                    return new PostmanPathElement { String = stringValue };
                 case JsonTokenType.StartObject:
-                    var objectValue = JsonSerializer.Deserialize<PathClass>(ref reader, options);
-                    return new PathElement { PathClass = objectValue };
+                    var objectValue = JsonSerializer.Deserialize<PostmanPathClass>(ref reader, options);
+                    return new PostmanPathElement { PathClass = objectValue };
             }
             throw new Exception("Cannot unmarshal type PathElement");
         }
 
-        public override void Write(Utf8JsonWriter writer, PathElement value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanPathElement value, JsonSerializerOptions options)
         {
             if (value.String != null)
             {
@@ -1377,30 +1377,30 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type PathElement");
         }
 
-        public static readonly PathElementConverter Singleton = new PathElementConverter();
+        public static readonly PostmanPathElementConverter Singleton = new PostmanPathElementConverter();
     }
 
-    internal class DescriptionUnionConverter : JsonConverter<DescriptionUnion>
+    internal class PostmanDescriptionUnionConverter : JsonConverter<PostmanDescriptionUnion>
     {
-        public override bool CanConvert(Type t) => t == typeof(DescriptionUnion);
+        public override bool CanConvert(Type t) => t == typeof(PostmanDescriptionUnion);
 
-        public override DescriptionUnion Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanDescriptionUnion Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.Null:
-                    return new DescriptionUnion { };
+                    return new PostmanDescriptionUnion { };
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new DescriptionUnion { String = stringValue };
+                    return new PostmanDescriptionUnion { String = stringValue };
                 case JsonTokenType.StartObject:
-                    var objectValue = JsonSerializer.Deserialize<Description>(ref reader, options);
-                    return new DescriptionUnion { Description = objectValue };
+                    var objectValue = JsonSerializer.Deserialize<PostmanDescription>(ref reader, options);
+                    return new PostmanDescriptionUnion { Description = objectValue };
             }
             throw new Exception("Cannot unmarshal type DescriptionUnion");
         }
 
-        public override void Write(Utf8JsonWriter writer, DescriptionUnion value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanDescriptionUnion value, JsonSerializerOptions options)
         {
             if (value.IsNull)
             {
@@ -1420,72 +1420,72 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type DescriptionUnion");
         }
 
-        public static readonly DescriptionUnionConverter Singleton = new DescriptionUnionConverter();
+        public static readonly PostmanDescriptionUnionConverter Singleton = new PostmanDescriptionUnionConverter();
     }
 
-    internal class VariableTypeConverter : JsonConverter<VariableType>
+    internal class PostmanVariableTypeConverter : JsonConverter<PostmanVariableType>
     {
-        public override bool CanConvert(Type t) => t == typeof(VariableType);
+        public override bool CanConvert(Type t) => t == typeof(PostmanVariableType);
 
-        public override VariableType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanVariableType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             var value = reader.GetString();
             switch (value)
             {
                 case "any":
-                    return VariableType.Any;
+                    return PostmanVariableType.Any;
                 case "boolean":
-                    return VariableType.Boolean;
+                    return PostmanVariableType.Boolean;
                 case "number":
-                    return VariableType.Number;
+                    return PostmanVariableType.Number;
                 case "string":
-                    return VariableType.String;
+                    return PostmanVariableType.String;
             }
             throw new Exception("Cannot unmarshal type VariableType");
         }
 
-        public override void Write(Utf8JsonWriter writer, VariableType value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanVariableType value, JsonSerializerOptions options)
         {
             switch (value)
             {
-                case VariableType.Any:
+                case PostmanVariableType.Any:
                     JsonSerializer.Serialize(writer, "any", options);
                     return;
-                case VariableType.Boolean:
+                case PostmanVariableType.Boolean:
                     JsonSerializer.Serialize(writer, "boolean", options);
                     return;
-                case VariableType.Number:
+                case PostmanVariableType.Number:
                     JsonSerializer.Serialize(writer, "number", options);
                     return;
-                case VariableType.String:
+                case PostmanVariableType.String:
                     JsonSerializer.Serialize(writer, "string", options);
                     return;
             }
             throw new Exception("Cannot marshal type VariableType");
         }
 
-        public static readonly VariableTypeConverter Singleton = new VariableTypeConverter();
+        public static readonly PostmanVariableTypeConverter Singleton = new PostmanVariableTypeConverter();
     }
 
-    internal class CollectionVersionConverter : JsonConverter<CollectionVersion>
+    internal class PostmanCollectionVersionConverter : JsonConverter<PostmanCollectionVersion>
     {
-        public override bool CanConvert(Type t) => t == typeof(CollectionVersion);
+        public override bool CanConvert(Type t) => t == typeof(PostmanCollectionVersion);
 
-        public override CollectionVersion Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanCollectionVersion Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new CollectionVersion { String = stringValue };
+                    return new PostmanCollectionVersion { String = stringValue };
                 case JsonTokenType.StartObject:
-                    var objectValue = JsonSerializer.Deserialize<CollectionVersionClass>(ref reader, options);
-                    return new CollectionVersion { CollectionVersionClass = objectValue };
+                    var objectValue = JsonSerializer.Deserialize<PostmanCollectionVersionClass>(ref reader, options);
+                    return new PostmanCollectionVersion { CollectionVersionClass = objectValue };
             }
-            throw new Exception("Cannot unmarshal type CollectionVersion");
+            throw new Exception("Cannot unmarshal type PostmanCollectionVersion");
         }
 
-        public override void Write(Utf8JsonWriter writer, CollectionVersion value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanCollectionVersion value, JsonSerializerOptions options)
         {
             if (value.String != null)
             {
@@ -1500,10 +1500,10 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type CollectionVersion");
         }
 
-        public static readonly CollectionVersionConverter Singleton = new CollectionVersionConverter();
+        public static readonly PostmanCollectionVersionConverter Singleton = new PostmanCollectionVersionConverter();
     }
 
-    internal class MinMaxLengthCheckConverter : JsonConverter<string>
+    internal class PostmanMinMaxLengthCheckConverter : JsonConverter<string>
     {
         public override bool CanConvert(Type t) => t == typeof(string);
 
@@ -1527,28 +1527,28 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type string");
         }
 
-        public static readonly MinMaxLengthCheckConverter Singleton = new MinMaxLengthCheckConverter();
+        public static readonly PostmanMinMaxLengthCheckConverter Singleton = new PostmanMinMaxLengthCheckConverter();
     }
 
-    internal class RequestUnionConverter : JsonConverter<RequestUnion>
+    internal class PostmanRequestUnionConverter : JsonConverter<PostmanRequestUnion>
     {
-        public override bool CanConvert(Type t) => t == typeof(RequestUnion);
+        public override bool CanConvert(Type t) => t == typeof(PostmanRequestUnion);
 
-        public override RequestUnion Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanRequestUnion Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new RequestUnion { String = stringValue };
+                    return new PostmanRequestUnion { String = stringValue };
                 case JsonTokenType.StartObject:
-                    var objectValue = JsonSerializer.Deserialize<RequestClass>(ref reader, options);
-                    return new RequestUnion { RequestClass = objectValue };
+                    var objectValue = JsonSerializer.Deserialize<PostmanRequestClass>(ref reader, options);
+                    return new PostmanRequestUnion { RequestClass = objectValue };
             }
             throw new Exception("Cannot unmarshal type RequestUnion");
         }
 
-        public override void Write(Utf8JsonWriter writer, RequestUnion value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanRequestUnion value, JsonSerializerOptions options)
         {
             if (value.String != null)
             {
@@ -1563,30 +1563,30 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type RequestUnion");
         }
 
-        public static readonly RequestUnionConverter Singleton = new RequestUnionConverter();
+        public static readonly PostmanRequestUnionConverter Singleton = new PostmanRequestUnionConverter();
     }
 
-    internal class SrcConverter : JsonConverter<Src>
+    internal class PostmanSrcConverter : JsonConverter<PostmanSrc>
     {
-        public override bool CanConvert(Type t) => t == typeof(Src);
+        public override bool CanConvert(Type t) => t == typeof(PostmanSrc);
 
-        public override Src Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanSrc Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.Null:
-                    return new Src { };
+                    return new PostmanSrc { };
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new Src { String = stringValue };
+                    return new PostmanSrc { String = stringValue };
                 case JsonTokenType.StartArray:
                     var arrayValue = JsonSerializer.Deserialize<object[]>(ref reader, options);
-                    return new Src { AnythingArray = arrayValue };
+                    return new PostmanSrc { AnythingArray = arrayValue };
             }
             throw new Exception("Cannot unmarshal type Src");
         }
 
-        public override void Write(Utf8JsonWriter writer, Src value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanSrc value, JsonSerializerOptions options)
         {
             if (value.IsNull)
             {
@@ -1606,111 +1606,111 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type Src");
         }
 
-        public static readonly SrcConverter Singleton = new SrcConverter();
+        public static readonly PostmanSrcConverter Singleton = new PostmanSrcConverter();
     }
 
-    internal class FormParameterTypeConverter : JsonConverter<FormParameterType>
+    internal class PostmanFormParameterTypeConverter : JsonConverter<PostmanFormParameterType>
     {
-        public override bool CanConvert(Type t) => t == typeof(FormParameterType);
+        public override bool CanConvert(Type t) => t == typeof(PostmanFormParameterType);
 
-        public override FormParameterType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanFormParameterType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             var value = reader.GetString();
             switch (value)
             {
                 case "file":
-                    return FormParameterType.File;
+                    return PostmanFormParameterType.File;
                 case "text":
-                    return FormParameterType.Text;
+                    return PostmanFormParameterType.Text;
             }
             throw new Exception("Cannot unmarshal type FormParameterType");
         }
 
-        public override void Write(Utf8JsonWriter writer, FormParameterType value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanFormParameterType value, JsonSerializerOptions options)
         {
             switch (value)
             {
-                case FormParameterType.File:
+                case PostmanFormParameterType.File:
                     JsonSerializer.Serialize(writer, "file", options);
                     return;
-                case FormParameterType.Text:
+                case PostmanFormParameterType.Text:
                     JsonSerializer.Serialize(writer, "text", options);
                     return;
             }
             throw new Exception("Cannot marshal type FormParameterType");
         }
 
-        public static readonly FormParameterTypeConverter Singleton = new FormParameterTypeConverter();
+        public static readonly PostmanFormParameterTypeConverter Singleton = new PostmanFormParameterTypeConverter();
     }
 
-    internal class ModeConverter : JsonConverter<Mode>
+    internal class PostmanModeConverter : JsonConverter<PostmanMode>
     {
-        public override bool CanConvert(Type t) => t == typeof(Mode);
+        public override bool CanConvert(Type t) => t == typeof(PostmanMode);
 
-        public override Mode Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanMode Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             var value = reader.GetString();
             switch (value)
             {
                 case "file":
-                    return Mode.File;
+                    return PostmanMode.File;
                 case "formdata":
-                    return Mode.Formdata;
+                    return PostmanMode.Formdata;
                 case "graphql":
-                    return Mode.Graphql;
+                    return PostmanMode.Graphql;
                 case "raw":
-                    return Mode.Raw;
+                    return PostmanMode.Raw;
                 case "urlencoded":
-                    return Mode.Urlencoded;
+                    return PostmanMode.Urlencoded;
             }
             throw new Exception("Cannot unmarshal type Mode");
         }
 
-        public override void Write(Utf8JsonWriter writer, Mode value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanMode value, JsonSerializerOptions options)
         {
             switch (value)
             {
-                case Mode.File:
+                case PostmanMode.File:
                     JsonSerializer.Serialize(writer, "file", options);
                     return;
-                case Mode.Formdata:
+                case PostmanMode.Formdata:
                     JsonSerializer.Serialize(writer, "formdata", options);
                     return;
-                case Mode.Graphql:
+                case PostmanMode.Graphql:
                     JsonSerializer.Serialize(writer, "graphql", options);
                     return;
-                case Mode.Raw:
+                case PostmanMode.Raw:
                     JsonSerializer.Serialize(writer, "raw", options);
                     return;
-                case Mode.Urlencoded:
+                case PostmanMode.Urlencoded:
                     JsonSerializer.Serialize(writer, "urlencoded", options);
                     return;
             }
             throw new Exception("Cannot marshal type Mode");
         }
 
-        public static readonly ModeConverter Singleton = new ModeConverter();
+        public static readonly PostmanModeConverter Singleton = new PostmanModeConverter();
     }
 
-    internal class HeaderUnionConverter : JsonConverter<HeaderUnion>
+    internal class PostmanHeaderUnionConverter : JsonConverter<PostmanHeaderUnion>
     {
-        public override bool CanConvert(Type t) => t == typeof(HeaderUnion);
+        public override bool CanConvert(Type t) => t == typeof(PostmanHeaderUnion);
 
-        public override HeaderUnion Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanHeaderUnion Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new HeaderUnion { String = stringValue };
+                    return new PostmanHeaderUnion { String = stringValue };
                 case JsonTokenType.StartArray:
-                    var arrayValue = JsonSerializer.Deserialize<Header[]>(ref reader, options);
-                    return new HeaderUnion { HeaderArray = arrayValue };
+                    var arrayValue = JsonSerializer.Deserialize<PostmanHeader[]>(ref reader, options);
+                    return new PostmanHeaderUnion { HeaderArray = arrayValue };
             }
             throw new Exception("Cannot unmarshal type HeaderUnion");
         }
 
-        public override void Write(Utf8JsonWriter writer, HeaderUnion value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanHeaderUnion value, JsonSerializerOptions options)
         {
             if (value.String != null)
             {
@@ -1725,42 +1725,42 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type HeaderUnion");
         }
 
-        public static readonly HeaderUnionConverter Singleton = new HeaderUnionConverter();
+        public static readonly PostmanHeaderUnionConverter Singleton = new PostmanHeaderUnionConverter();
     }
 
-    internal class ResponseConverter : JsonConverter<Response>
+    internal class PostmanResponseConverter : JsonConverter<PostmanResponse>
     {
-        public override bool CanConvert(Type t) => t == typeof(Response);
+        public override bool CanConvert(Type t) => t == typeof(PostmanResponse);
 
-        public override Response Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanResponse Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.Null:
-                    return new Response { };
+                    return new PostmanResponse { };
                 case JsonTokenType.Number:
                     if (reader.TryGetInt64(out var integerValue))
-                        return new Response {Integer = integerValue};
+                        return new PostmanResponse {Integer = integerValue};
                     else
-                        return new Response { Double = reader.GetDouble() };
+                        return new PostmanResponse { Double = reader.GetDouble() };
                 case JsonTokenType.True:
                 case JsonTokenType.False:
                     var boolValue = reader.GetBoolean();
-                    return new Response { Bool = boolValue };
+                    return new PostmanResponse { Bool = boolValue };
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new Response { String = stringValue };
+                    return new PostmanResponse { String = stringValue };
                 case JsonTokenType.StartObject:
-                    var objectValue = JsonSerializer.Deserialize<ResponseClass>(ref reader, options);
-                    return new Response { ResponseClass = objectValue };
+                    var objectValue = JsonSerializer.Deserialize<PostmanResponseClass>(ref reader, options);
+                    return new PostmanResponse { ResponseClass = objectValue };
                 case JsonTokenType.StartArray:
                     var arrayValue = JsonSerializer.Deserialize<object[]>(ref reader, options);
-                    return new Response { AnythingArray = arrayValue };
+                    return new PostmanResponse { AnythingArray = arrayValue };
             }
             throw new Exception("Cannot unmarshal type Response");
         }
 
-        public override void Write(Utf8JsonWriter writer, Response value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanResponse value, JsonSerializerOptions options)
         {
             if (value.IsNull)
             {
@@ -1800,30 +1800,30 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type Response");
         }
 
-        public static readonly ResponseConverter Singleton = new ResponseConverter();
+        public static readonly PostmanResponseConverter Singleton = new PostmanResponseConverter();
     }
 
-    internal class HeadersConverter : JsonConverter<Headers>
+    internal class PostmanHeadersConverter : JsonConverter<PostmanHeaders>
     {
-        public override bool CanConvert(Type t) => t == typeof(Headers);
+        public override bool CanConvert(Type t) => t == typeof(PostmanHeaders);
 
-        public override Headers Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanHeaders Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.Null:
-                    return new Headers { };
+                    return new PostmanHeaders { };
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new Headers { String = stringValue };
+                    return new PostmanHeaders { String = stringValue };
                 case JsonTokenType.StartArray:
-                    var arrayValue = JsonSerializer.Deserialize<HeaderElement[]>(ref reader, options);
-                    return new Headers { AnythingArray = arrayValue };
+                    var arrayValue = JsonSerializer.Deserialize<PostmanHeaderElement[]>(ref reader, options);
+                    return new PostmanHeaders { AnythingArray = arrayValue };
             }
             throw new Exception("Cannot unmarshal type Headers");
         }
 
-        public override void Write(Utf8JsonWriter writer, Headers value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanHeaders value, JsonSerializerOptions options)
         {
             if (value.IsNull)
             {
@@ -1843,28 +1843,28 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type Headers");
         }
 
-        public static readonly HeadersConverter Singleton = new HeadersConverter();
+        public static readonly PostmanHeadersConverter Singleton = new PostmanHeadersConverter();
     }
 
-    internal class HeaderElementConverter : JsonConverter<HeaderElement>
+    internal class PostmanHeaderElementConverter : JsonConverter<PostmanHeaderElement>
     {
-        public override bool CanConvert(Type t) => t == typeof(HeaderElement);
+        public override bool CanConvert(Type t) => t == typeof(PostmanHeaderElement);
 
-        public override HeaderElement Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanHeaderElement Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new HeaderElement { String = stringValue };
+                    return new PostmanHeaderElement { String = stringValue };
                 case JsonTokenType.StartObject:
-                    var objectValue = JsonSerializer.Deserialize<Header>(ref reader, options);
-                    return new HeaderElement { Header = objectValue };
+                    var objectValue = JsonSerializer.Deserialize<PostmanHeader>(ref reader, options);
+                    return new PostmanHeaderElement { Header = objectValue };
             }
             throw new Exception("Cannot unmarshal type HeaderElement");
         }
 
-        public override void Write(Utf8JsonWriter writer, HeaderElement value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanHeaderElement value, JsonSerializerOptions options)
         {
             if (value.String != null)
             {
@@ -1879,30 +1879,30 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type HeaderElement");
         }
 
-        public static readonly HeaderElementConverter Singleton = new HeaderElementConverter();
+        public static readonly PostmanHeaderElementConverter Singleton = new PostmanHeaderElementConverter();
     }
 
-    internal class ResponseTimeConverter : JsonConverter<ResponseTime>
+    internal class PostmanResponseTimeConverter : JsonConverter<PostmanResponseTime>
     {
-        public override bool CanConvert(Type t) => t == typeof(ResponseTime);
+        public override bool CanConvert(Type t) => t == typeof(PostmanResponseTime);
 
-        public override ResponseTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override PostmanResponseTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             switch (reader.TokenType)
             {
                 case JsonTokenType.Null:
-                    return new ResponseTime { };
+                    return new PostmanResponseTime { };
                 case JsonTokenType.Number:
                     var doubleValue = reader.GetDouble();
-                    return new ResponseTime { Double = doubleValue };
+                    return new PostmanResponseTime { Double = doubleValue };
                 case JsonTokenType.String:
                     var stringValue = reader.GetString();
-                    return new ResponseTime { String = stringValue };
+                    return new PostmanResponseTime { String = stringValue };
             }
             throw new Exception("Cannot unmarshal type ResponseTime");
         }
 
-        public override void Write(Utf8JsonWriter writer, ResponseTime value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, PostmanResponseTime value, JsonSerializerOptions options)
         {
             if (value.IsNull)
             {
@@ -1922,15 +1922,15 @@ namespace HamedStack.PostmanCollectionV2_0_0
             throw new Exception("Cannot marshal type ResponseTime");
         }
 
-        public static readonly ResponseTimeConverter Singleton = new ResponseTimeConverter();
+        public static readonly PostmanResponseTimeConverter Singleton = new PostmanResponseTimeConverter();
     }
     
-    public class DateOnlyConverter : JsonConverter<DateOnly>
+    public class PostmanDateOnlyConverter : JsonConverter<DateOnly>
     {
         private readonly string serializationFormat;
-        public DateOnlyConverter() : this(null) { }
+        public PostmanDateOnlyConverter() : this(null) { }
 
-        public DateOnlyConverter(string? serializationFormat)
+        public PostmanDateOnlyConverter(string? serializationFormat)
         {
             this.serializationFormat = serializationFormat ?? "yyyy-MM-dd";
         }
@@ -1945,13 +1945,13 @@ namespace HamedStack.PostmanCollectionV2_0_0
             => writer.WriteStringValue(value.ToString(serializationFormat));
     }
 
-    public class TimeOnlyConverter : JsonConverter<TimeOnly>
+    public class PostmanTimeOnlyConverter : JsonConverter<TimeOnly>
     {
         private readonly string serializationFormat;
 
-        public TimeOnlyConverter() : this(null) { }
+        public PostmanTimeOnlyConverter() : this(null) { }
 
-        public TimeOnlyConverter(string? serializationFormat)
+        public PostmanTimeOnlyConverter(string? serializationFormat)
         {
             this.serializationFormat = serializationFormat ?? "HH:mm:ss.fff";
         }
@@ -1966,7 +1966,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
             => writer.WriteStringValue(value.ToString(serializationFormat));
     }
 
-    internal class IsoDateTimeOffsetConverter : JsonConverter<DateTimeOffset>
+    internal class PostmanIsoDateTimeOffsetConverter : JsonConverter<DateTimeOffset>
     {
         public override bool CanConvert(Type t) => t == typeof(DateTimeOffset);
 
@@ -2030,7 +2030,7 @@ namespace HamedStack.PostmanCollectionV2_0_0
                 return default(DateTimeOffset);
             }
         }
-        public static readonly IsoDateTimeOffsetConverter Singleton = new IsoDateTimeOffsetConverter();
+        public static readonly PostmanIsoDateTimeOffsetConverter Singleton = new PostmanIsoDateTimeOffsetConverter();
     }
 }
 #pragma warning restore CS8618

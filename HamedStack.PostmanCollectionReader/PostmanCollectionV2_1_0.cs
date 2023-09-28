@@ -6,7 +6,7 @@
 #pragma warning disable CS8603
 #pragma warning disable CS1591
 
-namespace PostmanCollectionV2_1_0
+namespace HamedStack.PostmanCollectionV2_1_0
 {
     using System;
     using System.Collections.Generic;

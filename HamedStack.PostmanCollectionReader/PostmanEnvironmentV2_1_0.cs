@@ -7,7 +7,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace PostmanCollectionV2_1_0;
+namespace HamedStack.PostmanCollectionV2_1_0;
 
 /// <summary>
 /// Represents a Postman environment.

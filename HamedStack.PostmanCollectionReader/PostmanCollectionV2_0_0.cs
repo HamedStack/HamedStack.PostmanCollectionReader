@@ -6,7 +6,7 @@
 #pragma warning disable CS8603
 #pragma warning disable CS1591
 
-namespace PostmanCollectionV2_0_0
+namespace HamedStack.PostmanCollectionV2_0_0
 {
     using System;
     using System.Collections.Generic;
@@ -2030,8 +2030,6 @@ namespace PostmanCollectionV2_0_0
                 return default(DateTimeOffset);
             }
         }
-
-
         public static readonly IsoDateTimeOffsetConverter Singleton = new IsoDateTimeOffsetConverter();
     }
 }
